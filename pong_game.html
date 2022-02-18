@@ -34,7 +34,16 @@
         runGame();
 
         function runGame() {
-          //to do
+          render();
+        }
+
+        function render() {
+          //draw background
+          drawRect(0, 0, canvasWidth, canvasHeight, BGColour);
+
+          //draw paddles
+          drawRect(paddle1PosX, paddle1PosY, paddlesWidth, paddlesHeight, DrawColour); //left
+          drawRect(paddle2PosX, paddle2PosY, paddlesWidth, paddlesHeight, DrawColour); //right
         }
 
         function drawRect(posX, posY, width, height, colour) {
