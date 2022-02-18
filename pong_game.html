@@ -22,6 +22,14 @@
         const DrawColour = "white";
         const FPS = 30;
 
+        //paddles
+        const paddlesWidth = 10;
+        const paddlesHeight = 100;
+        let paddle1PosY = 250;
+        const paddle1PosX = 0;
+        let paddle2PosY = 250;
+        const paddle2PosX = canvasWidth - paddlesWidth;
+
         runGame();
 
         function runGame() {
