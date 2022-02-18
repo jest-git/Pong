@@ -25,9 +25,10 @@
         //paddles
         const paddlesWidth = 10;
         const paddlesHeight = 100;
-        let paddle1PosY = 250;
+        const paddlesPosYCenter = canvas.height / 2 - paddlesHeight / 2;
+        let paddle1PosY = paddlesPosYCenter;
         const paddle1PosX = 0;
-        let paddle2PosY = 250;
+        let paddle2PosY = paddlesPosYCenter;
         const paddle2PosX = canvasWidth - paddlesWidth;
 
         runGame();
