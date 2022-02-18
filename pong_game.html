@@ -31,6 +31,11 @@
         let paddle2PosY = paddlesPosYCenter;
         const paddle2PosX = canvasWidth - paddlesWidth;
 
+        //ball
+        let ballRadius = 10;
+        let ballPosX = canvasWidth / 2;
+        let ballPosY = canvasHeight / 2;
+
         runGame();
 
         function runGame() {
@@ -44,11 +49,21 @@
           //draw paddles
           drawRect(paddle1PosX, paddle1PosY, paddlesWidth, paddlesHeight, DrawColour); //left
           drawRect(paddle2PosX, paddle2PosY, paddlesWidth, paddlesHeight, DrawColour); //right
+
+          //draw ball
+          drawCircle(ballPosX, ballPosY, ballRadius, DrawColour);
         }
 
         function drawRect(posX, posY, width, height, colour) {
           canvasContext.fillStyle = colour;
           canvasContext.fillRect(posX, posY, width, height);
+        }
+
+        function drawCircle(centerPosX, centerPosY, radius, colour) {
+          canvasContext.fillStyle = colour;
+          canvasContext.beginPath();
+          canvasContext.arc(centerPosX, centerPosY, radius, 0, Math.PI * 2, true);
+          canvasContext.fill();
         }
       };
     </script>
