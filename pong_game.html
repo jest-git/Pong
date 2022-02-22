@@ -188,6 +188,7 @@
         function drawTxt(posX, posY, txt, font, colour) {
           canvasContext.fillStyle = colour;
           canvasContext.font = font;
+          canvasContext.textAlign = "center";
           canvasContext.fillText(txt, posX, posY);
         }
       };
