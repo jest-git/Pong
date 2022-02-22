@@ -83,10 +83,11 @@
         }
 
         function calculateFrame() {
+          //move ball
           ballPosX = ballPosX + ballSpeedX;
           ballPosY = ballPosY + ballSpeedY;
 
-          //bounce ball
+          //bounce ball up and bottom screen
           if (ballPosY < 0 || ballPosY > canvasHeight) {
             ballSpeedY = -ballSpeedY;
           }
@@ -95,8 +96,7 @@
           if (ballPosX < 0) {
             player2Score++;
             ballReset();
-          }
-          if (ballPosX > canvasWidth) {
+          } else if (ballPosX > canvasWidth) {
             player1Score++;
             ballReset();
           }
