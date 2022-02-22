@@ -42,6 +42,16 @@
         const netGapSize = netDotHeight * 2;
         const netPosXCenter = canvasWidth / 2 - netDotWidth / 2;
 
+        //players score
+        let player1Score = 0;
+        let player2Score = 0;
+        //players score GUI
+        const scoreGuiFontSizePx = 30;
+        let scoreGuiFont = scoreGuiFontSizePx + "px verdana";
+        const player1scoreGuiPosX = canvasWidth / 4;
+        const player2scoreGuiPosX = player1scoreGuiPosX * 3;
+        const playersScoreGuiPosY = 50;
+
         runGame();
 
         function runGame() {
@@ -61,6 +71,10 @@
 
           //draw net
           drawNet(netPosXCenter, netDotWidth, netDotHeight, DrawColour, netGapSize);
+
+          //draw score GUI
+          drawTxt(player1scoreGuiPosX, playersScoreGuiPosY, player1Score, scoreGuiFont, DrawColour);
+          drawTxt(player2scoreGuiPosX, playersScoreGuiPosY, player2Score, scoreGuiFont, DrawColour);
         }
 
         function drawRect(posX, posY, width, height, colour) {
@@ -79,6 +93,12 @@
           for (var i = 0; i < canvasHeight; i += gapSize) {
             drawRect(posX, i, dotWidth, dotHeight, colour);
           }
+        }
+
+        function drawTxt(posX, posY, txt, font, colour) {
+          canvasContext.fillStyle = colour;
+          canvasContext.font = font;
+          canvasContext.fillText(txt, posX, posY);
         }
       };
     </script>
