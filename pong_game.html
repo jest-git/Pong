@@ -56,8 +56,13 @@
 
         function runGame() {
           setInterval(function () {
+            calculateFrame();
             render();
           }, 1000 / FPS);
+        }
+
+        function calculateFrame() {
+          
         }
 
         function render() {
