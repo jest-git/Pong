@@ -55,7 +55,9 @@
         runGame();
 
         function runGame() {
-          render();
+          setInterval(function () {
+            render();
+          }, 1000 / FPS);
         }
 
         function render() {
