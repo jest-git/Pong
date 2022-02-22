@@ -63,6 +63,23 @@
             calculateFrame();
             render();
           }, 1000 / FPS);
+
+          //left paddle mouse movement
+          canvas.addEventListener("mousemove", function (evt) {
+            let mousePos = calculateMousePos(evt);
+            paddle1PosY = mousePos.y - paddlesHeight / 2;
+          });
+        }
+
+        function calculateMousePos(evt) {
+          const rect = canvas.getBoundingClientRect();
+          const root = document.documentElement;
+          let mouseX = evt.clientX - rect.left - root.scrollLeft;
+          let mouseY = evt.clientY - rect.top - root.scrollTop;
+          return {
+            x: mouseX,
+            y: mouseY,
+          };
         }
 
         function calculateFrame() {
