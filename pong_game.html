@@ -92,6 +92,14 @@
             ballSpeedY = -ballSpeedY;
           }
 
+          //paddles bounce ball
+          if (
+            (ballPosX < paddlesWidth && ballPosY > paddle1PosY && ballPosY < paddle1PosY + paddlesHeight) ||
+            (ballPosX > canvasWidth - paddlesWidth && ballPosY > paddle2PosY && ballPosY < paddle2PosY + paddlesHeight)
+          ) {
+            ballSpeedX = -ballSpeedX;
+          }
+
           //score
           if (ballPosX < 0) {
             player2Score++;
