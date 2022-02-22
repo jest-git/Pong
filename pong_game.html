@@ -68,6 +68,11 @@
         function calculateFrame() {
           ballPosX = ballPosX + ballSpeedX;
           ballPosY = ballPosY + ballSpeedY;
+
+          //bounce ball
+          if (ballPosY < 0 || ballPosY > canvasHeight) {
+            ballSpeedY = -ballSpeedY;
+          }
         }
 
         function render() {
