@@ -78,6 +78,9 @@
             let mousePos = calculateMousePos(evt);
             paddle1PosY = mousePos.y - paddlesHeight / 2;
           });
+
+          //restart game
+          canvas.addEventListener("mousedown", handleMouseClick);
         }
 
         function calculateMousePos(evt) {
@@ -89,6 +92,14 @@
             x: mouseX,
             y: mouseY,
           };
+        }
+
+        function handleMouseClick(evt) {
+          if (showingWinScreen) {
+            player1Score = 0;
+            player2Score = 0;
+            showingWinScreen = false;
+          }
         }
 
         function calculateFrame() {
