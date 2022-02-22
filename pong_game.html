@@ -33,8 +33,12 @@
 
         //ball
         const ballRadius = 10;
-        let ballPosX = canvasWidth / 2;
-        let ballPosY = canvasHeight / 2;
+        const ballStartPosX = canvasWidth / 2;
+        const ballStartPosY = canvasHeight / 2;
+        let ballPosX = ballStartPosX;
+        let ballPosY = ballStartPosY;
+        let ballSpeedX = 10;
+        let ballSpeedY = 4;
 
         //net
         const netDotWidth = 2;
@@ -62,7 +66,8 @@
         }
 
         function calculateFrame() {
-          
+          ballPosX = ballPosX + ballSpeedX;
+          ballPosY = ballPosY + ballSpeedY;
         }
 
         function render() {
