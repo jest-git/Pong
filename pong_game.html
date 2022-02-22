@@ -38,7 +38,8 @@
         let ballPosX = ballStartPosX;
         let ballPosY = ballStartPosY;
         let ballSpeedX = 10;
-        let ballSpeedY = 4;
+        const ballStarSpeedY = 4;
+        let ballSpeedY = ballStarSpeedY;
 
         //net
         const netDotWidth = 2;
@@ -112,9 +113,16 @@
 
         function ballReset() {
           ballSpeedX = -ballSpeedX;
+          ballSpeedY = getRandomInt(-ballStarSpeedY, ballStarSpeedY);
 
           ballPosX = ballStartPosX;
           ballPosY = ballStartPosY;
+        }
+
+        function getRandomInt(min, max) {
+          min = Math.ceil(min);
+          max = Math.floor(max);
+          return Math.floor(Math.random() * (max - min)) + min;
         }
 
         function render() {
