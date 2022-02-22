@@ -58,6 +58,10 @@
         const player2scoreGuiPosX = player1scoreGuiPosX * 3;
         const playersScoreGuiPosY = 50;
 
+        //Computer movement
+        const aiReactSpeed = 30;
+        const aiYSpeed = 5;
+
         runGame();
 
         function runGame() {
@@ -85,11 +89,13 @@
         }
 
         function calculateFrame() {
+          computerMovement();
+
           //move ball
           ballPosX = ballPosX + ballSpeedX;
           ballPosY = ballPosY + ballSpeedY;
 
-          //bounce ball up and bottom screen
+          //bounce ball top and bottom screen
           if (ballPosY < 0 || ballPosY > canvasHeight) {
             ballSpeedY = -ballSpeedY;
           }
@@ -116,6 +122,15 @@
           } else if (ballPosX > canvasWidth) {
             player1Score++;
             ballReset();
+          }
+        }
+
+        function computerMovement() {
+          var paddle2YCenter = paddle2PosY + paddlesHeight / 2;
+          if (paddle2YCenter < ballPosY - aiReactSpeed) {
+            paddle2PosY = paddle2PosY + aiYSpeed;
+          } else if (paddle2YCenter > ballPosY + aiReactSpeed) {
+            paddle2PosY = paddle2PosY - aiYSpeed;
           }
         }
 
