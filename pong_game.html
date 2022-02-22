@@ -40,6 +40,7 @@
         let ballSpeedX = 10;
         const ballStarSpeedY = 4;
         let ballSpeedY = ballStarSpeedY;
+        const ballSpeedYDelta = 0.3;
 
         //net
         const netDotWidth = 2;
@@ -94,11 +95,18 @@
           }
 
           //paddles bounce ball
-          if (
-            (ballPosX < paddlesWidth && ballPosY > paddle1PosY && ballPosY < paddle1PosY + paddlesHeight) ||
-            (ballPosX > canvasWidth - paddlesWidth && ballPosY > paddle2PosY && ballPosY < paddle2PosY + paddlesHeight)
+          if (ballPosX < paddlesWidth && ballPosY > paddle1PosY && ballPosY < paddle1PosY + paddlesHeight) {
+            ballSpeedX = -ballSpeedX;
+            let deltaY = ballPosY - (paddle1PosY + paddlesHeight / 2);
+            ballSpeedY = deltaY * ballSpeedYDelta;
+          } else if (
+            ballPosX > canvasWidth - paddlesWidth &&
+            ballPosY > paddle2PosY &&
+            ballPosY < paddle2PosY + paddlesHeight
           ) {
             ballSpeedX = -ballSpeedX;
+            let deltaY = ballPosY - (paddle2PosY + paddlesHeight / 2);
+            ballSpeedY = deltaY * ballSpeedYDelta;
           }
 
           //score
