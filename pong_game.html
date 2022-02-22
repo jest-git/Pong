@@ -191,6 +191,15 @@
           canvasContext.textAlign = "center";
           canvasContext.fillText(txt, posX, posY);
         }
+
+        function drawWinningScreen() {
+          if (player1Score >= winScore) {
+            drawTxt(canvasWidth / 2, canvasHeight / 2, "Left Player Won", scoreGuiFont, DrawColour);
+          } else if (player2Score >= winScore) {
+            drawTxt(canvasWidth / 2, canvasHeight / 2, "Right Player Won", scoreGuiFont, DrawColour);
+          }
+          drawTxt(canvasWidth / 2, canvasHeight / 1.2, "click to continue", scoreGuiFont, DrawColour);
+        }
       };
     </script>
   </body>
