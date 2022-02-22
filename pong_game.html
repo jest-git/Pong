@@ -73,6 +73,23 @@
           if (ballPosY < 0 || ballPosY > canvasHeight) {
             ballSpeedY = -ballSpeedY;
           }
+
+          //score
+          if (ballPosX < 0) {
+            player2Score++;
+            ballReset();
+          }
+          if (ballPosX > canvasWidth) {
+            player1Score++;
+            ballReset();
+          }
+        }
+
+        function ballReset() {
+          ballSpeedX = -ballSpeedX;
+
+          ballPosX = ballStartPosX;
+          ballPosY = ballStartPosY;
         }
 
         function render() {
