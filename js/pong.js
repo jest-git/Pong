@@ -6,8 +6,8 @@ window.onload = function () {
   const canvasHeight = canvas.height;
 
   //game settings
-  const BGColour = "black";
-  const DrawColour = "white";
+  const bgColour = "black";
+  const drawColour = "white";
   const FPS = 30;
   const winScore = 5;
 
@@ -160,7 +160,7 @@ window.onload = function () {
 
   function render() {
     //draw background
-    drawRect(0, 0, canvasWidth, canvasHeight, BGColour);
+    drawRect(0, 0, canvasWidth, canvasHeight, bgColour);
 
     if (showingWinScreen) {
       drawWinningScreen();
@@ -168,18 +168,18 @@ window.onload = function () {
     }
 
     //draw paddles
-    drawRect(paddle1PosX, paddle1PosY, paddlesWidth, paddlesHeight, DrawColour); //left
-    drawRect(paddle2PosX, paddle2PosY, paddlesWidth, paddlesHeight, DrawColour); //right
+    drawRect(paddle1PosX, paddle1PosY, paddlesWidth, paddlesHeight, drawColour); //left
+    drawRect(paddle2PosX, paddle2PosY, paddlesWidth, paddlesHeight, drawColour); //right
 
     //draw ball
-    drawCircle(ballPosX, ballPosY, ballRadius, DrawColour);
+    drawCircle(ballPosX, ballPosY, ballRadius, drawColour);
 
     //draw net
-    drawNet(netPosXCenter, netDotWidth, netDotHeight, DrawColour, netGapSize);
+    drawNet(netPosXCenter, netDotWidth, netDotHeight, drawColour, netGapSize);
 
     //draw score GUI
-    drawTxt(player1scoreGuiPosX, playersScoreGuiPosY, player1Score, scoreGuiFont, DrawColour);
-    drawTxt(player2scoreGuiPosX, playersScoreGuiPosY, player2Score, scoreGuiFont, DrawColour);
+    drawTxt(player1scoreGuiPosX, playersScoreGuiPosY, player1Score, scoreGuiFont, drawColour);
+    drawTxt(player2scoreGuiPosX, playersScoreGuiPosY, player2Score, scoreGuiFont, drawColour);
   }
 
   function drawRect(posX, posY, width, height, colour) {
@@ -209,10 +209,10 @@ window.onload = function () {
 
   function drawWinningScreen() {
     if (player1Score >= winScore) {
-      drawTxt(canvasWidth / 2, canvasHeight / 2, "Left Player Won", scoreGuiFont, DrawColour);
+      drawTxt(canvasWidth / 2, canvasHeight / 2, "Left Player Won", scoreGuiFont, drawColour);
     } else if (player2Score >= winScore) {
-      drawTxt(canvasWidth / 2, canvasHeight / 2, "Right Player Won", scoreGuiFont, DrawColour);
+      drawTxt(canvasWidth / 2, canvasHeight / 2, "Right Player Won", scoreGuiFont, drawColour);
     }
-    drawTxt(canvasWidth / 2, canvasHeight / 1.2, "click to continue", scoreGuiFont, DrawColour);
+    drawTxt(canvasWidth / 2, canvasHeight / 1.2, "click to continue", scoreGuiFont, drawColour);
   }
 };
